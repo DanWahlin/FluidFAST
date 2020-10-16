@@ -9,7 +9,7 @@ import { DiceRollerContainerRuntimeFactory } from './services/containerCode';
 import { DiceRoller } from './services/dicerollerDataObject';
 import { FluidLoaderService } from './services/fluidLoaderService';
 
-const template = html`
+const template = html<DiceRollerElement>`
     <div>
         <h1>Dice Roller Fluid Demo</h1>
         This demonstration shows how to use Fluid distributed data structures to sync data across multiple clients.
@@ -41,6 +41,7 @@ export class DiceRollerElement extends FASTElement {
         // Load Fluid DataObject
         const fluidService = new FluidLoaderService();
         this.dataObject = await fluidService.loadDataObject<DiceRoller>(DiceRollerContainerRuntimeFactory);
+        this.dataObject.on('diceRolled', (val) => this.updateDiceChar(val));
         this.dataObject.on('diceRolled', this.updateDiceChar);
         this.updateDiceChar(this.dataObject.value);
     }
