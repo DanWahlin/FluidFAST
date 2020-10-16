@@ -2,6 +2,7 @@ import {
     customElement,
     FASTElement,
     html,
+    attr,
     observable
 } from "@microsoft/fast-element";
 import { DiceRollerContainerRuntimeFactory } from './services/containerCode';
@@ -17,7 +18,7 @@ const template = html`
         After multiple clients are available, click the Roll button to sync rolls across all of the clients.
         <br />
         <div style="text-align: center">
-        <div style="font-size: 200px;" :style="{color: ${x => x.diceCharColor} }">
+        <div style="font-size: 200px;color: ${x => x.diceCharColor}">
             ${x => x.diceChar}
         </div>
         <button style="font-size: 50px" @click="${x => x.roll()}">Roll</button>
@@ -30,16 +31,18 @@ const template = html`
     template
 })
 export class DiceRollerElement extends FASTElement {
-    @observable diceCharColor: string;
+    @attr diceCharColor: string;
     @observable diceChar: string;
     dataObject: DiceRoller;
 
-    connectedCallback() {
+    async connectedCallback() {
         super.connectedCallback();
+
+        // Load Fluid DataObject
         const fluidService = new FluidLoaderService();
-        // this.dataObject = await fluidService.loadDataObject<DiceRoller>(DiceRollerContainerRuntimeFactory);
-        // this.dataObject.on('diceRolled', this.updateDiceChar);
-        // this.updateDiceChar(this.dataObject.value);
+        this.dataObject = await fluidService.loadDataObject<DiceRoller>(DiceRollerContainerRuntimeFactory);
+        this.dataObject.on('diceRolled', this.updateDiceChar);
+        this.updateDiceChar(this.dataObject.value);
     }
 
     public roll() {

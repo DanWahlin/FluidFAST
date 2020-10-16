@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
       "pretty": true,
-      "target": "esnext",
-      "module": "esnext",
+      "target": "ESNext",
+      "module": "ESNext",
       "moduleResolution": "node",
       "importHelpers": true,
       "experimentalDecorators": true,

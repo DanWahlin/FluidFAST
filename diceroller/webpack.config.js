@@ -9,11 +9,11 @@ module.exports = function(env, { mode }) {
       app: ['./src/main.ts']
     },
     output: {
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      libraryTarget: "umd"
     },
     resolve: {
-      extensions: ['.ts', '.js'],
-      modules: ['src', 'node_modules']
+      extensions: ['.ts', '.js']
     },
     devServer: {
       port: 9000,
