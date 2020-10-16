@@ -42,6 +42,7 @@ export class DiceRollerElement extends FASTElement {
         const fluidService = new FluidLoaderService();
         this.dataObject = await fluidService.loadDataObject<DiceRoller>(DiceRollerContainerRuntimeFactory);
         this.dataObject.on('diceRolled', (val) => this.updateDiceChar(val));
+        this.dataObject.on('diceRolled', this.updateDiceChar);
         this.updateDiceChar(this.dataObject.value);
     }
 

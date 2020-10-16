@@ -1,0 +1,29 @@
+{
+  "name": "fast-fluid-diceroller",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rimraf dist && webpack --config webpack.config.js --mode=production",
+    "serve": "http-server -c-1",
+    "start:server": "tinylicious",
+    "start": "concurrently \"npm:start:server\" \"webpack-dev-server\""
+  },
+  "dependencies": {
+    "@fluidframework/aqueduct": "^0.26.2",
+    "@fluidframework/core-interfaces": "^0.26.2",
+    "@fluidframework/get-tinylicious-container": "^0.26.2",
+    "@fluidframework/map": "^0.26.2",
+    "@microsoft/fast-components": "^1.11.1",
+    "tslib": "^2.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "http-server": "^0.12.3",
+    "rimraf": "^3.0.2",
+    "tinylicious": "^0.2.3810",
+    "ts-loader": "^8.0.5",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
