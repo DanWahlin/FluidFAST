@@ -56,6 +56,6 @@ export class DiceRollerElement extends FASTElement {
     }
 
     disconnectedCallback() {
-        this.dataObject.on('diceRolled', this.updateDiceChar);
+        this.dataObject.on('diceRolled', (val) => this.updateDiceChar(val));
     }
 }

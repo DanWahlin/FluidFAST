@@ -11,7 +11,7 @@
     "@fluidframework/aqueduct": "^0.27.1",
     "@fluidframework/core-interfaces": "^0.27.1",
     "@fluidframework/get-tinylicious-container": "^0.27.1",
-    "@fluidframework/map": "^0.27.1",
+    "@fluidframework/sequence": "^0.27.1",
     "@microsoft/fast-components": "^1.11.1",
     "tslib": "^2.0.3"
   },
