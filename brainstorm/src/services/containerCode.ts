@@ -4,22 +4,20 @@
  */
 
 import { ContainerRuntimeFactoryWithDefaultDataStore } from "@fluidframework/aqueduct";
-
-import { DiceRollerInstantiationFactory } from "./dicerollerDataObject";
+import { NoteroInstantiationFactory } from "./noteroDataObject";
 
 /**
- * The DiceRollerContainerRuntimeFactory is the container code for our scenario.
+ * This does setup for the Container. The SimpleModuleInstantiationFactory also enables dynamic loading in the
+ * EmbeddedComponentLoader.
  *
- * Since we only need to instantiate and retrieve a single dice roller for our scenario, we can use a
- * ContainerRuntimeFactoryWithDefaultDataStore. We provide it with the type of the data object we want to create
- * and retrieve by default, and the registry entry mapping the type to the factory.
+ * There are two important things here:
+ * 1. Default Component name
+ * 2. Map of string to factory for all components
  *
- * This container code will create the single default data object on our behalf and make it available on the
- * Container with a URL of "/", so it can be retrieved via container.request("/").
+ * In this example, we are only registering a single component, but more complex examples will register multiple
+ * components.
  */
-export const DiceRollerContainerRuntimeFactory = new ContainerRuntimeFactoryWithDefaultDataStore(
-    DiceRollerInstantiationFactory.type,
-    new Map([
-        DiceRollerInstantiationFactory.registryEntry,
-    ]),
+export const NoteroContainerFactory = new ContainerRuntimeFactoryWithDefaultDataStore(
+  NoteroInstantiationFactory.type,
+  new Map([NoteroInstantiationFactory.registryEntry])
 );
