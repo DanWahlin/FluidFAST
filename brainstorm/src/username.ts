@@ -10,7 +10,8 @@ const template = html<UserNameElement>`
     <div class="userName">
       <span>${x => x.user.name }</span>
       <span class="userCount">
-        ${x => x.userCount === 2 ? "person" : "people"}
+        (with ${x => x.userCount - 1}
+        ${x => x.userCount === 2 ? "person" : "people"})
       </span>
     </div>  
 `;
