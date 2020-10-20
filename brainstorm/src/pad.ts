@@ -3,10 +3,12 @@ import {
   FASTElement,
   attr,
   html,
+  css,
   when
 } from "@microsoft/fast-element";
 import { Notero } from "./services/noteroDataObject";
 import { IUser } from "./shared/interfaces";
+import './assets/styles.scss';
 
 const template = html<PadElement>`
   <div class="container">
@@ -26,7 +28,7 @@ const template = html<PadElement>`
         ${x => x.highlightMine ? "Stop highlighting" : "Highlight my ideas" }
       </button>
       ${when(x => x.user && x.users, html<PadElement>`
-        <user-name-tag :user="${x => x.user}" :userCount="${x => x.users.length}"></user-name-tag>
+        <user-name :user="${x => x.user}" :userCount="${x => x.users.length}"></user-name>
       `)}
     </div>
   </div>
@@ -41,7 +43,7 @@ export class PadElement extends FASTElement {
     @attr user: IUser;
     @attr users: IUser[];
     @attr highlightMine: boolean;
-    @attr noteValue: string;
+    @attr noteValue = '';
     @attr disabled: boolean;
 
     createNote() {

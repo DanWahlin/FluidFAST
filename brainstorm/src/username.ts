@@ -16,7 +16,7 @@ const template = html<UserNameElement>`
 `;
 
 @customElement({
-  name: 'user-name-tag',
+  name: 'user-name',
   template
 })
 export class UserNameElement extends FASTElement {

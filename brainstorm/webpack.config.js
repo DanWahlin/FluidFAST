@@ -30,7 +30,8 @@ module.exports = function(env, { mode }) {
             {
               loader: 'ts-loader'
             }
-          ]
+          ],
+          exclude: /node_modules/
         },
         {
           test: /\.scss$/i,
