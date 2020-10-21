@@ -1,5 +1,5 @@
 {
-  "name": "fast-fluid-diceroller",
+  "name": "fast-fluid-collab-text",
   "version": "1.0.0",
   "scripts": {
     "build": "rimraf dist && webpack --config webpack.config.js --mode=production",

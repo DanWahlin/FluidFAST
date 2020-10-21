@@ -1,4 +1,4 @@
-# Fluid FAST Dice Roller
+# Fluid FAST Collaborative Text
 
 Step to run the app:
 

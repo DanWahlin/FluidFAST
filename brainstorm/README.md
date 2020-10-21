@@ -1,4 +1,4 @@
-# Fluid FAST Dice Roller
+# Fluid FAST Brainstorm
 
 Step to run the app:
 
