@@ -7,6 +7,7 @@ import {
 import { NoteroContainerFactory } from './services/containerCode';
 import { FluidLoaderService } from './services/fluidLoaderService';
 import { Notero } from './services/noteroDataObject';
+import { styles } from './css';
 
 const template = html<NoteroElement>`
   <div>
@@ -23,7 +24,8 @@ const template = html<NoteroElement>`
 
 @customElement({
     name: 'notero-app',
-    template
+    template,
+    styles
 })
 export class NoteroElement extends FASTElement {
     @attr dataObject: Notero;

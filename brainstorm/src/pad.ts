@@ -8,7 +8,7 @@ import {
 } from "@microsoft/fast-element";
 import { Notero } from "./services/noteroDataObject";
 import { IUser } from "./shared/interfaces";
-import './assets/styles.scss';
+import { styles } from './css';
 
 const template = html<PadElement>`
   <div class="container">
@@ -36,7 +36,8 @@ const template = html<PadElement>`
 
 @customElement({
   name: 'pad-tag',
-  template
+  template,
+  styles
 })
 export class PadElement extends FASTElement {
     model: Notero;

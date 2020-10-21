@@ -9,27 +9,27 @@ import {
 } from "@microsoft/fast-element";
 import { Notero } from './services/noteroDataObject';
 import { INote, INoteWithVotes, IUser } from './shared/interfaces';
+import { styles } from './css';
 
 const template = html<BoardElement>`
-    <div class="board">
-        ${when(x => x.notes, html`
-          <div>
-            ${repeat(x => x.notes, html`
-              <note-tag
-                :note="${x => x}"
-                :count="${x => x.votes}"
-                :user="${x => x.user}"
-                :highlightMine="${x => x.highlightMine}"
-                @click="${x => x.vote(x)}"></note-tag>
-            `)}
-          </div>
+  <div class="board">
+      <div>
+        ${repeat(x => x.notes, html`
+          <note-tag
+            :note="${note => note}"
+            :count="${note => note.votes}"
+            :user="${(x,ctx) => ctx.parent.user}"
+            :highlightMine="${(x,ctx) => ctx.parent.highlightMine}"
+            @click="${(note, ctx) => ctx.parent.vote(note)}"></note-tag>
         `)}
-    </div>
+      </div>
+  </div>
 `;
 
 @customElement({
   name: 'board-tag',
-  template
+  template,
+  styles
 })
 export class BoardElement extends FASTElement {
   @attr model: Notero;

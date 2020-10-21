@@ -8,6 +8,7 @@ import {
 } from "@microsoft/fast-element";
 import { Notero } from './services/noteroDataObject';
 import { INote, IUser } from './shared/interfaces';
+import { styles } from './css';
 
 const template = html<NoteroBoardElement>`
   <div>
@@ -31,7 +32,8 @@ const template = html<NoteroBoardElement>`
 
 @customElement({
   name: 'notero-board',
-  template
+  template,
+  styles
 })
 export class NoteroBoardElement extends FASTElement {
     @attr _model: Notero;
@@ -60,7 +62,7 @@ export class NoteroBoardElement extends FASTElement {
     }
 
     onHighlightMine(event: any) {
-        this.highlightMine = event;
+        this.highlightMine = event.detail;
     }
 
     disconnectedCallback() {
