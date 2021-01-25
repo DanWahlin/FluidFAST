@@ -13,7 +13,7 @@ import { IFluidHandle } from "@fluidframework/core-interfaces";
 export class CollaborativeText extends DataObject {
     private readonly textKey = "textKey";
 
-    text: SharedString | undefined;
+    text: SharedString;
 
     public static get Name() { return "collaborative-textarea"; }
 
@@ -36,7 +36,7 @@ export class CollaborativeText extends DataObject {
 
     protected async hasInitialized() {
         // Store the text if we are loading the first time or loading from existing
-        this.text = await this.root.get<IFluidHandle<SharedString>>(this.textKey).get();
+        this.text = await this.root?.get<IFluidHandle<SharedString>>(this.textKey)?.get() as SharedString;
     }
 
 }

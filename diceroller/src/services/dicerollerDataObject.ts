@@ -13,6 +13,7 @@ const diceValueKey = "diceValue";
  * The DiceRoller is our data object that implements the IDiceRoller interface.
  */
 export class DiceRoller extends DataObject {
+
     /**
      * initializingFirstTime is run only once by the first client to create the DataObject.  Here we use it to
      * initialize the state of the DataObject.

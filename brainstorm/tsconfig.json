@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
       "pretty": true,
-      "target": "ESNext",
+      "target": "ES2018",
       "module": "ESNext",
       "moduleResolution": "node",
       "importHelpers": true,
